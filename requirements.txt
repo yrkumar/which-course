@@ -5,7 +5,7 @@ PyRSS2Gen==1.0.0
 Scrapy==0.16.3
 Twisted==11.0.0
 Werkzeug==0.8.3
-altgraph==0.7.1
+altgraph==0.7.2
 bdist-mpkg==0.4.4
 bonjour-py==0.3
 include-server==3.1-toolwhip.1
