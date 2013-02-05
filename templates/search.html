@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+
+{% block content %}
+<table class="table table-hover table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>Course</th>
+			<th>Instructor</th>
+			<th>Number of Ratings</th>
+			<th>Hours/Week</th>
+			<th>Teaching</th>
+			<th>Explaining</th>
+			<th>Course Importance</th>	
+			<th>Overall</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for course in ratings %}
+			{% for instructor in ratings[course] %}
+				<tr>
+					<td>{{ course }}</td>
+					<td>{{ instructor }}</td>
+					<td>{{ ratings[course][instructor].num_ratings }}</td>
+					<td>{{ ratings[course][instructor].hours }}</td>
+					<td>{{ ratings[course][instructor].teaching }}</td>
+					<td>{{ ratings[course][instructor].explain }}</td>
+					<td>{{ ratings[course][instructor].importance }}</td>
+					<td>{{ ratings[course][instructor].overall }}</td>
+				</tr>
+			{% endfor %}
+		{% endfor %}
+	</tbody>
+</table>
+<p>&nbsp;</p>
+{% block error %}
+{% endblock %}
+{% endblock %}
+
