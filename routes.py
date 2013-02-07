@@ -25,8 +25,7 @@ def not_found_handler(course_terms, course_ratings):
 	elif len(not_found) > 1:
 		not_found = ", ".join(not_found)
 		message = not_found + " were not found."
-	return render_template('error.html', 
-	ratings=course_ratings, message=message)
+	return render_template('error.html', ratings=course_ratings, message=message)
 
 @app.route('/', methods=['GET', 'POST'])
 def post():
@@ -41,7 +40,7 @@ def post():
 		message = "Your search returned no results."
 		return render_template('blank.html', message=message)
 	elif len(course_terms) != len(course_ratings.keys()):
-		not_found_handler(course_terms, course_ratings)
+		return not_found_handler(course_terms, course_ratings)
 	else:
 		return render_template('search.html', ratings=course_ratings)
 	
