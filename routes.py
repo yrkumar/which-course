@@ -34,6 +34,7 @@ def not_found_handler(course_terms, course_ratings):
 def post():
 	# Parse search query, set up ratings
 	search_terms = str(request.form['search'])
+	search_terms = search_terms.replace("-", "")
 	course_terms = search_terms.split(", ")
 	ratings = get_ratings('ratings')
 	course_ratings = {} # Dict to render resulting reviews
