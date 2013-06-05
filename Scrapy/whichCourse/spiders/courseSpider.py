@@ -1,4 +1,4 @@
-from scrapy. selector import HtmlXPathSelector
+from scrapy.selector import HtmlXPathSelector
 from scrapy.spider import BaseSpider
 from scrapy.http import HtmlResponse
 
