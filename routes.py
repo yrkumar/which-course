@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, flash
 import pickle
 import os
+import json
 
 app = Flask(__name__)
 app.secret_key = "asdfghjkl"	
@@ -42,6 +43,11 @@ def post():
 		# add dict key to course_ratings if it's a search term
 		if course in course_terms:
 			course_ratings[course] = ratings[course]
+
+        # output in JSON if they request it as such 
+        if request.form['json'] == 'true':
+                return json.dumps(course_ratings)
+
 	# Handle empty search
 	if len(course_ratings.keys()) == 0:
 		message = "Your search returned no results."
