@@ -43,11 +43,9 @@ def post():
 		# add dict key to course_ratings if it's a search term
 		if course in course_terms:
 			course_ratings[course] = ratings[course]
-
         # output in JSON if they request it as such 
-        if request.form['json'] == 'true':
+        if 'json' in request.form and request.form['json'] == 'true':
                 return json.dumps(course_ratings)
-
 	# Handle empty search
 	if len(course_ratings.keys()) == 0:
 		message = "Your search returned no results."
